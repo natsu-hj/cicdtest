@@ -1,0 +1,37 @@
+---
+# nginx 디플로이
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      page: web
+  template:
+    metadata:
+      name: pod-web
+      labels:
+        page: web
+    spec:
+      containers:
+      - name: ctn-web
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+#web 서비스
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-web
+spec:
+  selector:
+    page: web
+  ports:
+    - name: nginx-port
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
