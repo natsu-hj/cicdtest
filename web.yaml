@@ -24,11 +24,10 @@ kind: Service
 metadata:
   name: lb-web
 spec:
-  selector:
-    page: web
   ports:
-    - name: nginx-port
+  - name: nginx-port
     port: 80
     targetPort: 80
+  selector:
+    page: web
   type: LoadBalancer
----
