@@ -18,7 +18,7 @@ pipeline {
       steps {
         sh '''
         sudo kauth
-	sudo kubectl set iamge deploy deploy-main ctn-main=natsunohj/testweb:newnewmain
+	sudo kubectl set image deploy deploy-main ctn-main=natsunohj/testweb:newnewmain
         '''
       }
     }
