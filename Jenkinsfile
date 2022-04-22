@@ -24,7 +24,7 @@ pipeline {
     stage('shop update') {
       steps {
         sh '''
-        sudo sed -i 's/blog/shop' index.html
+        sudo echo "shop page" >> index.html
         '''
       }
     }
